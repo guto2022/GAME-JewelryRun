@@ -1,6 +1,6 @@
 # 💎 GAME-JewelryRun
 
-> **Status:** 🚧 Em construção
+> **Status:** ✔️ Concluído
 
 ## 📖 Sobre
 
