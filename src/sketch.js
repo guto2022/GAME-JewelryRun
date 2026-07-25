@@ -27,6 +27,7 @@ function setup(){
   //plano de fundo se movendo
   path=createSprite(width/2,200);
   path.addImage(pathImg);
+  adjustBackground();
   path.velocityY = 4;
 
   //crie o menino correndo
@@ -66,8 +67,8 @@ function draw() {
     swordGroup.setVelocityYEach(4 + gameSpeed);
 
     //código para reiniciar o plano de fundo
-    if(path.y > height ){
-      path.y = height/2;
+    if (path.y - path.height / 2 > 0) {
+      path.y = height - path.height / 2;
     }
   
     createCash();
@@ -182,4 +183,16 @@ function restartGame() {
   boy.y = height - 20;
 
   restartButton.hide();
+}
+
+function adjustBackground() {
+  // Usa a maior escala para cobrir a tela inteira, sem faixas nas laterais.
+  path.scale = max(width / pathImg.width, height / pathImg.height);
+  path.x = width / 2;
+  path.y = height / 2;
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  adjustBackground();
 }
